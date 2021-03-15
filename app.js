@@ -6,20 +6,20 @@ const cors = require('cors');
 
 /* Route Imports Start*/
 const indexRoutes = require('./routes/index.routes');
-const indexRoutes = require('./routes/index.routes');
-const usersRoutes = require('./routes/users.routes');
+//const indexRoutes = require('./routes/index.routes');
+//const usersRoutes = require('./routes/users.routes');
 
 /* Route Imports End */
 
 const app = express();
 
 const corsOptions = { 
-  origin : 'http://localhost:4201'
+  origin : 'http://localhost:5000'
 }
 
 app.use(cors(corsOptions));
 
-app.use(logger('dev'));
+//app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -38,17 +38,11 @@ app.use((req, res, next) => {
   next();
 });
 
-app.listen('5000', (error)=>{
-        if(error)
-        console.log(error);
-        else
-        console.log('listening on port 5000');
-        
-    })
+
 
 /* App Routes Start */
 app.use('/', indexRoutes);
-app.use('/api/users', usersRoutes);
+//app.use('/api/users', usersRoutes);
 
 /* App Routes End */
 
