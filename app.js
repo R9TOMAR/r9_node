@@ -6,6 +6,7 @@ const cors = require('cors');
 
 /* Route Imports Start*/
 const indexRoutes = require('./routes/index.routes');
+const indexRoutes = require('./routes/index.routes');
 const usersRoutes = require('./routes/users.routes');
 
 /* Route Imports End */
@@ -36,6 +37,14 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+app.listen('5000', (error)=>{
+        if(error)
+        console.log(error);
+        else
+        console.log('listening on port 5000');
+        
+    })
 
 /* App Routes Start */
 app.use('/', indexRoutes);
